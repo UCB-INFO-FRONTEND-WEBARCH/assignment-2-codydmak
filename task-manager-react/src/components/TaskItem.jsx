@@ -6,8 +6,6 @@ function TaskItem({text, completed, onToggle}) {
             <p>{text}</p>
         </label>
 
-
-
     )
 }
 

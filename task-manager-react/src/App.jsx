@@ -3,9 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import TaskForm from './components/TaskForm';
+import TaskList from './components/TaskList';
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(['call mom']);
   
   const addTask = (taskText) => {
     // Add new task to state
@@ -53,7 +54,7 @@ function App() {
   // );
   return (
     <>
-      <body className = "page">
+      <div className = "page">
           <header>
             <div className="site-header">
                 <button className="menu-icon">
@@ -91,37 +92,16 @@ function App() {
             </aside>
             <section className ="main-content">
                 <h1>Inbox</h1>
-                <TaskForm onAddTask ={addTask}/>
-                <ul className ="main-list">
-                    <label className="container">
-                        <input type="checkbox" checked="checked"/>
-                        <span className="radio-button"></span>
-                        <p>Call Mom</p>
-                    </label>
-                    <label className="container">
-                        <input type="checkbox" checked="checked"/>
-                        <span className="radio-button"></span>
-                        <p>Buy the new issue of Scientific American</p>
-                    </label>
-                    <label className="container">
-                        <input type="checkbox" checked="checked"/>
-                        <span className="radio-button"></span>
-                        <p>Return the textbook to Josie</p>
-                    </label>
-                    <label className="container">
-                        <input type="checkbox" checked="checked"/>
-                        <span className="radio-button"></span>
-                        <p>Buy the new album by Rake</p>
-                    </label>
-                    <label className="container">
-                        <input type="checkbox" checked="checked"/>
-                        <span className="radio-button"></span>
-                        <p>Buy a gift card for Dad</p>
-                    </label>
-                </ul>
+                {/* <TaskForm onAddTask ={addTask}/> */}
+                {/* <TaskList task = {tasks}/> */}
+                {/* <ul className ="main-list">
+            
+                 
+                </ul> */}
+                {console.log("in main content")}
             </section>
         </main>
-      </body>
+      </div>
       
     
     </>
