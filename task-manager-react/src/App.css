@@ -21,6 +21,12 @@ h1{
     font-size: 20px;
 }
 
+.app{
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
