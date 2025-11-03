@@ -1,12 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 
 function App() {
-  const [tasks, setTasks] = useState(['call mom']);
+  const [tasks, setTasks] = useState([]);
   
   const addTask = (taskText) => {
     // Add new task to state
@@ -28,6 +26,9 @@ function App() {
     setTasks(tasks.filter(task=>task.id!=id))
     // Remove task from state
   };
+
+  const [activeTab, setActiveTab] = useState("tasks");
+
 
   const filterTask = () =>{
     if(tasks.completed == true){
@@ -91,14 +92,22 @@ function App() {
               </ul>
             </aside>
             <section className ="main-content">
+               {console.log("in main content")}
                 <h1>Inbox</h1>
-                {/* <TaskForm onAddTask ={addTask}/> */}
-                {/* <TaskList task = {tasks}/> */}
+                <div>
+                  <div>
+                    <button onClick={() => setActiveTab("all")}>All</button>
+                    <button onClick={() => setActiveTab("active")}>hello</button>
+                    <button onClick={() => setActiveTab("completed")}>Completed</button>
+                  </div>
+                </div>
+                <TaskForm onAddTask ={addTask}/>
+                {tasks.length === 0 ? <p>No tasks yet!</p> : <TaskList tasks={tasks} />}
+                {/* <TaskList task = {tasks}/>
                 {/* <ul className ="main-list">
             
                  
                 </ul> */}
-                {console.log("in main content")}
             </section>
         </main>
       </div>
