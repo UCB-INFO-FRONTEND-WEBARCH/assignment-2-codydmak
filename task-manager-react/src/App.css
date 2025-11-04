@@ -100,7 +100,7 @@ input::placeholder{
 .container {
     display: flex;
     align-items:center;
-    justify-content:flex-start;
+    justify-content:space-between;
     position: relative;
     gap: 16px;
     cursor: pointer;
@@ -126,6 +126,7 @@ input::placeholder{
 .radio-button{
     height: 18px;
     width: 18px;
+    padding: 8px;
     background-color: #f2f2f6;
     border-style: solid;
     border-color: #bdbdbd;
@@ -135,12 +136,16 @@ input::placeholder{
 .container input:checked ~ .radio-button{
     background-color:  #ffffff;
     border-radius: 100%;
+    outline: none;
 }
 
 .radio-button:after{
+    height: 18px;
+    width: 18px;
     content: "";
     position: absolute;
     display: none;
+    background-color: #dc4c3e;
 }
 
 .container input:checked ~ .radio-button::after{
@@ -150,12 +155,91 @@ input::placeholder{
 .container .radio-button::after{
     left: 9px;
     top: 5px;
-    width: 5px;
+    width: 10px;
     height: 10px;
     border-radius: 100%;
     border-width: 0 3px 3px 0;
 }
+.task-form{
+    display: flex;
+    gap: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
 
+.task-input{
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    width: 224px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: #ffb9b3;
+}
+
+.task-input::placeholder{
+    color: #000000b9;
+}
+
+.task-input:focus{
+    border-color: #f96153;
+    outline: none;
+}
+
+.task-line{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.task-label{
+    color: #000000b9;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.completed{
+    text-decoration: line-through;
+    opacity: .5;
+}
+
+.form-button{
+    background-color: #dc4c3e;
+    color: whitesmoke;
+    border-radius: 4px;
+}
+
+.tab{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #000000;
+}
+
+.tabs{
+    display: flex;
+    flex-direction: row;
+    padding: 0%;
+}
+
+.tab{
+    border-radius: 0%;
+    border: none;
+    padding-left: 0px;
+    padding-right: 16px;
+    outline: none;
+}
+
+.tab.active{
+    border: none;
+    border-style: none;
+    font-weight: 600;
+    background: red;
+}
+
+.tab-label{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #000000;
+}
 
 /* ========== SIDE NAVIGATION ========== */
 

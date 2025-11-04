@@ -1,13 +1,12 @@
-import {onDelete} from "react"
-import {completed} from "react"
-
-function TaskItem({completed, onToggle, text}) {
+function TaskItem({text, task, deleteTask, toggleTask}) {
     return(
-        <label className="container">
-            <input type="checkbox" checked={completed} onChange={onToggle}/>
-            <span className="radio-button"></span>
-            <p>{text}</p>
-        </label>
+        <li className="container">
+            <div className="task-line">
+                <button className="radio-button" onClick ={()=> toggleTask(task.id)} ></button>
+                <p className={`task-label ${task.completed ? "completed" :""}`} >{text}</p>
+            </div>
+            <img onClick ={()=>deleteTask(task.id)} src="assets/delete_icon.png" alt="Delete" className="nav-item"/>
+        </li>
 
     )
 }

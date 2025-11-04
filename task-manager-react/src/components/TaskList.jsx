@@ -1,18 +1,16 @@
-import {onDelete} from "react"
-import {onToggle} from "react"
-
 import TaskItem from "./TaskItem";
 
-function TaskList({tasks, onToggle, onDelete}){
+function TaskList({tasks, deleteTask, toggleTask}){
     
     return(
         <ul className ="main-list">
             {tasks.map((task) =>(
                 <TaskItem
                     key ={task.id}
+                    task = {task}
                     text = {task.text} // not text
-                    onToggle ={onToggle}
-                    onDelete = {onDelete}
+                    deleteTask = {deleteTask}
+                    toggleTask = {toggleTask}
                 />
             ))}
         </ul>

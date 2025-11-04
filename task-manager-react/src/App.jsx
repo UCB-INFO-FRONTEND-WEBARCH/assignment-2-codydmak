@@ -18,7 +18,7 @@ function App() {
   };
 
   const toggleTask = (id) => {
-    setTasks(tasks.map(task =>task.id ==id ?{...task, completed: !task.completed}: task))
+    setTasks(tasks.map(task =>task.id ===id ?{...task, completed: !task.completed}: task))
     // Toggle task completion
   };
 
@@ -27,7 +27,7 @@ function App() {
     // Remove task from state
   };
 
-  const [activeTab, setActiveTab] = useState("tasks");
+  const [activeTab, setActiveTab] = useState("all");
 
 
   const filterTask = () =>{
@@ -95,14 +95,16 @@ function App() {
                {console.log("in main content")}
                 <h1>Inbox</h1>
                 <div>
-                  <div>
-                    <button onClick={() => setActiveTab("all")}>All</button>
-                    <button onClick={() => setActiveTab("active")}>hello</button>
-                    <button onClick={() => setActiveTab("completed")}>Completed</button>
+                  <div className='tabs'>
+                    <button className ="tab" onClick={() => setActiveTab("all")}>
+                          <p className="tab-label">All</p>
+                    </button>
+                    <button className ="tab" onClick={() => setActiveTab("active")}>Active</button>
+                    <button className ="tab" onClick={() => setActiveTab("completed")}>Completed</button>
                   </div>
                 </div>
                 <TaskForm onAddTask ={addTask}/>
-                {tasks.length === 0 ? <p>No tasks yet!</p> : <TaskList tasks={tasks} />}
+                {tasks.length === 0 ? <p>No tasks yet!</p> : <TaskList tasks={tasks} deleteTask={deleteTask} toggleTask={toggleTask} />}
                 {/* <TaskList task = {tasks}/>
                 {/* <ul className ="main-list">
             
